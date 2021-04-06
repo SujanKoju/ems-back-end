@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        default_schema: "public"
+        show_sql: true
+        format_sql: true
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/postgres"
+    username: sujan
+    password: sujan
