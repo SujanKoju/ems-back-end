@@ -27,7 +27,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<Employee> findAll() {
-        return employeeRepository.findAll();
+        return employeeRepository.findAllByOrderByNameAsc();
+    }
+
+    @Override
+    public List<Employee> findAllWithSearchParam(String searchParam) {
+        if (searchParam == null) return employeeRepository.findAll();
+        return employeeRepository.findByNameContainingIgnoringCaseOrderByNameAsc(searchParam);
     }
 
     @Override

@@ -9,6 +9,8 @@ public interface EmployeeService {
 
     List<Employee> findAll();
 
+    List<Employee> findAllWithSearchParam(String searchParam);
+
     Employee update(Employee employee);
 
     void delete(Long id);

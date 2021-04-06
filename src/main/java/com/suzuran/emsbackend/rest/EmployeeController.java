@@ -24,6 +24,13 @@ public class EmployeeController {
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 
+    @GetMapping("/search-param/{searchParam}")
+    public ResponseEntity<List<Employee>> getAllWithSearchParam(@PathVariable("searchParam") String searchParam) {
+        System.out.println("---- GET ALL WITH SEARCH PARAM {} API CALLED ---- "+ searchParam);
+        List<Employee> employees = employeeService.findAllWithSearchParam(searchParam);
+        return new ResponseEntity<>(employees, HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Employee> getById(@PathVariable("id") Long id) {
         System.out.println("---- GET BY ID API CALLED ----");
